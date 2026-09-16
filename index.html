@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fördersignal Bus – Fördermittel für Busunternehmen, monatlich gefiltert auf Ihren Betrieb</title>
+<meta name="description" content="Fördersignal Bus beobachtet die Förderprogramme von Bund, Bayern und EU für Busunternehmen und meldet monatlich die drei bis fünf, die zu Ihrer Flotte und Ihren Vorhaben passen, mit Frist und nächstem Schritt. Ein Produkt der HLS Deutschland GmbH.">
+<meta name="robots" content="index,follow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2314181C'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23FFB020'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --ink:#14181C;--ink-soft:#1E252B;--paper:#F6EFD9;--paper-soft:#EFE6C9;--amber:#FFB020;--amber-dim:#8a6220;
+    --petrol:#14424F;--petrol-dark:#0d2f38;--green:#3FA66A;--grey:#6B6A5F;--line:rgba(20,24,28,.12);--line-dark:rgba(246,239,217,.16);--white:#fff;
+    --font-display:"IBM Plex Mono","SF Mono",ui-monospace,Consolas,"DejaVu Sans Mono",monospace;
+    --font-body:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:var(--petrol)}
+  h1,h2,h3{margin:0;font-weight:600;letter-spacing:-.01em;line-height:1.2}
+  h2{font-size:clamp(26px,3.4vw,36px);margin-bottom:12px}
+  h3{font-size:18px}
+  p{margin:0}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  .eyebrow{font-family:var(--font-display);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--petrol);margin-bottom:10px}
+  .lede{font-size:17.5px;color:var(--grey);max-width:60ch}
+  section{padding:64px 0}
+  section+section{border-top:1px solid var(--line)}
+  :focus-visible{outline:2px solid var(--petrol);outline-offset:3px}
+
+  header.nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(20,24,28,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line-dark)}
+  .nav-inner{max-width:1080px;margin:0 auto;padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--font-display);color:var(--paper);font-size:15px;letter-spacing:.04em;text-decoration:none;white-space:nowrap}
+  .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--amber);box-shadow:0 0 6px 1px var(--amber)}
+  .brand small{font-family:var(--font-body);font-size:11px;letter-spacing:0;color:rgba(246,239,217,.6);margin-left:6px}
+  .brand .chip{display:inline-block;background:var(--amber);color:#1C1400;font-size:11px;letter-spacing:.08em;padding:2px 7px;border-radius:2px;margin-left:2px}
+  .nav-links{display:flex;gap:22px;align-items:center}
+  .nav-links a{color:rgba(246,239,217,.78);text-decoration:none;font-size:14px;white-space:nowrap}
+  .nav-links .btn{padding:8px 14px;font-size:13.5px}
+  .nav-links a:hover{color:var(--paper)}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:3px;font-size:14.5px;font-weight:600;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:var(--font-body)}
+  .btn-amber{background:var(--amber);color:#1C1400}.btn-amber:hover{background:#ffc24d}
+  .btn-ghost{border-color:rgba(246,239,217,.45);color:var(--paper)}.btn-ghost:hover{border-color:var(--paper)}
+  .btn-petrol{background:var(--petrol);color:#fff}.btn-petrol:hover{background:var(--petrol-dark)}
+  .nav-cta{display:none}@media(min-width:760px){.nav-cta{display:inline-flex}}
+  @media(max-width:1120px){.brand small{display:none}.nav-links{gap:16px}}
+  @media(max-width:760px){.nav-links a:not(.nav-cta){display:none}}
+
+  .hero{background:radial-gradient(1100px 480px at 12% -10%,rgba(255,176,32,.09),transparent 60%),var(--ink);color:var(--paper);padding:140px 0 80px;border-bottom:1px solid var(--line-dark)}
+  .hero .eyebrow{color:var(--amber)}
+  .hero h1{font-size:clamp(30px,4.4vw,48px);max-width:18ch;margin-bottom:16px}
+  .hero .lede{color:rgba(246,239,217,.78);font-size:18px;max-width:62ch;margin-bottom:28px}
+  .hero-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:start}
+  @media(max-width:860px){.hero-grid{grid-template-columns:1fr}}
+  .board{background:#0B0D0F;border:1px solid #2A2F33;border-radius:4px;padding:18px 20px;font-family:var(--font-display);font-size:13px}
+  .board-row{display:flex;justify-content:space-between;gap:14px;padding:9px 0;border-top:1px solid #23282c}
+  .board-row:first-child{border-top:0;padding-top:0}
+  .board-k{color:rgba(246,239,217,.55)}.board-v{color:var(--paper);text-align:right}
+  .board-v .amber{color:var(--amber)}
+  .board-foot{margin-top:12px;font-size:11px;color:rgba(246,239,217,.45);font-family:var(--font-body)}
+  .actions{display:flex;gap:12px;flex-wrap:wrap}
+
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;margin-top:28px}
+  .step{background:var(--white);border:1px solid var(--line);border-radius:6px;padding:22px}
+  .step .num{font-family:var(--font-display);color:var(--amber-dim);font-size:13px;letter-spacing:.1em;margin-bottom:8px}
+  .step h3{color:var(--petrol);margin-bottom:8px}
+  .step p{color:var(--ink-soft);font-size:15px}
+
+  .section-dark{background:var(--ink);color:var(--paper)}
+  .section-dark .eyebrow{color:var(--amber)}
+  .section-dark .lede{color:rgba(246,239,217,.75)}
+  .offer{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-top:30px}
+  .offer .item{border:1px solid var(--line-dark);border-radius:6px;padding:22px;background:rgba(246,239,217,.03)}
+  .offer h3{color:var(--paper);margin-bottom:8px}
+  .offer p{color:rgba(246,239,217,.75);font-size:15px}
+  .offer .tag{display:inline-block;font-family:var(--font-display);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:10px}
+  .not{margin-top:34px;border-top:1px solid var(--line-dark);padding-top:22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px 28px;font-size:15px;color:rgba(246,239,217,.8)}
+  .not strong{color:var(--paper)}
+
+  .themes{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:26px}
+  .theme{background:var(--white);border:1px solid var(--line);border-radius:6px;padding:20px}
+  .theme h3{color:var(--petrol);font-size:17px;margin-bottom:8px}
+  .theme p{font-size:14.5px;color:var(--ink-soft)}
+  .theme .src{display:block;margin-top:8px;font-family:var(--font-display);font-size:11px;color:var(--grey)}
+
+  .muster{background:var(--white);border:1px solid var(--line);border-radius:6px;padding:20px 22px;font-size:14.5px;margin-top:22px}
+  .muster table{width:100%;border-collapse:collapse}
+  .muster th{text-align:left;width:140px;color:var(--grey);font-weight:600;padding:6px 8px 6px 0;vertical-align:top;border-top:1px solid var(--line);font-family:var(--font-display);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+  .muster td{padding:6px 0;border-top:1px solid var(--line);vertical-align:top}
+  .muster tr:first-child th,.muster tr:first-child td{border-top:0}
+
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start}
+  @media(max-width:800px){.two{grid-template-columns:1fr}}
+  ul.plain{margin:14px 0 0;padding-left:20px;color:var(--ink-soft)}
+  ul.plain li{margin:6px 0}
+  .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:22px}
+  .fact{border-left:3px solid var(--amber);padding:4px 0 4px 14px}
+  .fact b{display:block;font-family:var(--font-display);font-size:20px;color:var(--petrol-dark)}
+  .fact span{font-size:13.5px;color:var(--grey)}
+
+  .faq details{border-top:1px solid var(--line);padding:14px 0}
+  .faq details:last-child{border-bottom:1px solid var(--line)}
+  .faq summary{cursor:pointer;font-weight:600;color:var(--petrol-dark);font-size:16.5px;list-style:none;display:flex;justify-content:space-between;gap:12px}
+  .faq summary::after{content:"+";font-family:var(--font-display);color:var(--amber-dim)}
+  .faq details[open] summary::after{content:"–"}
+  .faq p{margin-top:10px;color:var(--ink-soft);font-size:15px;max-width:70ch}
+
+  .signup-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:36px;align-items:start;margin-top:10px}
+  @media(max-width:860px){.signup-grid{grid-template-columns:1fr}}
+  .how{background:var(--paper-soft);border-radius:6px;padding:20px 22px}
+  .how ol{margin:10px 0 0;padding-left:20px;color:var(--ink-soft)}
+  .how li{margin:8px 0}
+  form{background:var(--white);border:1px solid var(--line);border-radius:6px;padding:22px}
+  .row{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-bottom:14px}
+  label{display:block;font-size:14px;font-weight:600;color:var(--ink-soft);margin-bottom:5px}
+  input[type=text],input[type=email],input[type=number],select{width:100%;padding:10px 12px;border:1px solid #b9b3a0;border-radius:4px;font:inherit;background:#fff}
+  fieldset{border:1px solid var(--line);border-radius:4px;padding:10px 14px;margin:0 0 14px}
+  legend{font-size:14px;font-weight:600;color:var(--ink-soft);padding:0 6px}
+  .chk{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;font-weight:400;margin:6px 0}
+  .chk input{margin-top:4px}
+  button{background:var(--petrol);color:#fff;border:0;border-radius:4px;padding:12px 22px;font:inherit;font-weight:700;cursor:pointer}
+  button:disabled{opacity:.5;cursor:not-allowed}
+  .hp{position:absolute;left:-9999px;top:-9999px;height:0;overflow:hidden}
+  .note{background:var(--paper-soft);border-left:4px solid var(--amber);padding:14px 16px;border-radius:4px;font-size:15px}
+  .msg{margin-top:12px;font-size:15px}.msg.ok{color:#1f6e3b}.msg.err{color:#a33}
+  .disclaimer{font-size:13.5px;color:var(--grey);border:1px solid var(--line);border-radius:6px;padding:12px 14px;margin-top:26px;background:#fff}
+
+  footer{background:var(--petrol-dark);color:#e9e4d3;padding:30px 0;font-size:13.5px}
+  footer a{color:#fff}
+  footer .cols{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+  .legal{display:none;background:#fff;border:1px solid var(--line);border-radius:6px;padding:24px;margin:24px auto;font-size:14.5px}
+  .legal:target{display:block}
+  .legal h2{font-size:22px}
+  .entwurf{color:#a33;font-weight:700}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top"><span class="dot"></span>Fördersignal <span class="chip">BUS</span><small>Ein Produkt der HLS Deutschland GmbH</small></a>
+    <nav class="nav-links">
+      <a href="#was">Was wir tun</a>
+      <a href="#leistungen">Leistungen</a>
+      <a href="#themen">Themen</a>
+      <a href="#fuer-wen">Für wen</a>
+      <a href="#hls">Wer dahinter steht</a>
+      <a href="#anmeldung" class="btn btn-amber nav-cta">Report anfordern</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Fördersignal · Thema Bus · Fachreport für Busunternehmen</div>
+        <h1>Fördermittel für Busunternehmen. Jeden Monat gefiltert auf Ihren Betrieb.</h1>
+        <p class="lede">Wir beobachten laufend die Förderprogramme von Bund, Bayern und EU, die für Busbetriebe zählen: Elektrobusse,
+        Ladeinfrastruktur, Photovoltaik am Depot, Digitalisierung. Einmal im Monat melden wir Ihnen die drei bis fünf Programme, die zu Ihrer
+        Flotte und Ihren Vorhaben passen, mit Frist und nächstem Schritt. Der Basisreport ist kostenlos.</p>
+        <div class="actions">
+          <a class="btn btn-amber" href="#anmeldung">Report anfordern</a>
+          <a class="btn btn-ghost" href="musterausgabe.html" target="_blank" rel="noopener">Musterausgabe ansehen</a>
+        </div>
+      </div>
+      <div class="board" aria-label="Kennzahlen des Dienstes">
+        <div class="board-row"><span class="board-k">Beobachtete Quellen</span><span class="board-v">12 <span class="amber">Bund · Bayern · EU</span></span></div>
+        <div class="board-row"><span class="board-k">Programme in der Datenbank</span><span class="board-v">53</span></div>
+        <div class="board-row"><span class="board-k">Prüftakt</span><span class="board-v">wöchentlich, <span class="amber">kurze Fenster täglich</span></span></div>
+        <div class="board-row"><span class="board-k">Je Ausgabe</span><span class="board-v">3–5 Programme, je 5 Zeilen</span></div>
+        <div class="board-row"><span class="board-k">Fristen-Alarm</span><span class="board-v">nächste 90 Tage</span></div>
+        <div class="board-row"><span class="board-k">Basisreport</span><span class="board-v"><span class="amber">kostenlos</span></span></div>
+        <div class="board-foot">Stand September 2026. Server in Frankfurt am Main.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="was">
+    <div class="wrap">
+      <div class="eyebrow">Was wir tun</div>
+      <h2>Drei Schritte, jeden Monat. Sie lesen nur den dritten.</h2>
+      <p class="lede">Förderprogramme für Busbetriebe stehen verstreut auf Ministeriumsseiten, in PDF-Aufrufen und in Verkündungsblättern.
+      Aufrufe öffnen kurz und schließen wieder. Wir übernehmen das Lesen und Vergleichen, Sie lesen nur das Ergebnis für Ihren Betrieb.</p>
+      <div class="steps">
+        <div class="step"><div class="num">01 · BEOBACHTEN</div><h3>Zwölf Quellen, laufend geprüft</h3>
+          <p>Bundesverkehrsministerium und Projektträger Jülich, bayerische Ministerien und Bezirksregierungen, KfW, LfA, BAFA, Umweltbundesamt,
+          Förderfibel Bayern, EU-Verkehrsprogramm. Wöchentlich, bei kurzen Aufruffenstern täglich. Nur Originalquellen, keine Sekundärmeldungen.</p></div>
+        <div class="step"><div class="num">02 · ABGLEICHEN</div><h3>Ihr Betriebsprofil entscheidet</h3>
+          <p>Flottengröße, Anteil Elektrobusse, Verkehrsart nach PBefG, Betriebssitz, Mitarbeiterzahl, Depot, Vorhaben. Jedes Programm hat
+          feste Bedingungen. Wir prüfen sie gegen Ihr Profil und zeigen nur, was passt. Ein Reisebusbetrieb sieht andere Programme als ein Linienbetrieb.</p></div>
+        <div class="step"><div class="num">03 · MELDEN</div><h3>Eine Seite, fünf Zeilen je Programm</h3>
+          <p>Was das Programm vorsieht. Für wen. Quote oder Betrag. Frist. Nächster Schritt. Dazu die Fristen der nächsten 90 Tage. Und zwischen
+          den Ausgaben ein Alarm, wenn ein Aufruf mit kurzem Fenster öffnet.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-dark" id="leistungen">
+    <div class="wrap">
+      <div class="eyebrow">Leistungen</div>
+      <h2>Was Fördersignal Bus leistet, und was bewusst nicht</h2>
+      <p class="lede">Der Report informiert und signalisiert. Die Entscheidung, der Antrag und die rechtliche oder steuerliche Prüfung bleiben bei
+      Ihnen und Ihren Beratern. Diese Grenze ist Absicht, nicht Lücke.</p>
+      <div class="offer">
+        <div class="item"><span class="tag">Basisreport · kostenlos</span><h3>Der Monatsreport</h3>
+          <p>Drei bis fünf Programme, die zu Ihrem Profil passen, je fünf Zeilen. Als E-Mail zum Monatsanfang, druckbar als eine Seite.
+          Programme, die nicht passen, erscheinen nicht.</p></div>
+        <div class="item"><span class="tag">Basisreport · kostenlos</span><h3>Der Fristen-Alarm</h3>
+          <p>Öffnet ein Aufruf mit kurzem Fenster, geht eine kurze Nachricht an Sie, außerhalb des Monatsrhythmus. Beispiel: Das bayerische
+          Ladeinfrastruktur-Programm hatte 2026 ein Antragsfenster von elf Tagen.</p></div>
+        <div class="item"><span class="tag">Basisreport · kostenlos</span><h3>Das Betriebsprofil</h3>
+          <p>Sie geben Ihre Angaben einmal bei der Anmeldung. Ändert sich Ihre Flotte oder Ihr Vorhaben, sagen Sie es uns per Antwort auf den
+          Report. Der nächste Report rechnet damit.</p></div>
+        <div class="item"><span class="tag">Auf Wunsch</span><h3>Das Einordnungsgespräch</h3>
+          <p>Wenn ein Programm passt und Sie über Beschaffung, Finanzierung, Leasing oder Depot sprechen wollen, ein Gespräch mit HLS.
+          Wirtschaftliche Einordnung, keine Rechts- oder Steuerberatung.</p></div>
+        <div class="item"><span class="tag">Für Kanzleien</span><h3>Der Report für Ihre Mandanten</h3>
+          <p>Steuerberater und Anwaltskanzleien mit Busunternehmen als Mandanten können den Report weiterreichen. Sprechen Sie uns an,
+          dann besprechen wir, in welcher Form.</p></div>
+        <div class="item"><span class="tag">Später</span><h3>Weitere Länder, weitere Themen</h3>
+          <p>Landesprogramme decken wir zunächst für Bayern ab, Bundesprogramme gelten überall. Fördersignal ist als Reihe angelegt:
+          Bus ist das erste Thema. Weitere Themen folgen unter derselben Marke, jeweils mit eigenem Report.</p></div>
+      </div>
+      <div class="not">
+        <div><strong>Keine Antragstellung.</strong> Wir stellen keine Förderanträge für Sie und nehmen keine Provision für Anträge.</div>
+        <div><strong>Keine Rechts- oder Steuerberatung.</strong> Ob ein Programm für Sie greift, prüfen Ihr Steuerberater oder Ihr Anwalt.</div>
+        <div><strong>Keine Weitergabe Ihrer Daten.</strong> Ihre Angaben dienen nur dem Report. Kein Adresshandel, keine Werbung Dritter.</div>
+        <div><strong>Keine Gewähr für Fristen.</strong> Maßgeblich sind immer die Programmbedingungen des Fördergebers.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="themen">
+    <div class="wrap">
+      <div class="eyebrow">Themen</div>
+      <h2>Vier Felder, in denen sich für Busbetriebe gerade etwas bewegt</h2>
+      <p class="lede">Beispiele aus der Datenbank, Stand September 2026. Formulierung wie im Report: Wir schreiben, was das Programm vorsieht,
+      nicht, was Sie bekommen. Das entscheidet der Fördergeber.</p>
+      <div class="themes">
+        <div class="theme"><h3>Elektrobusse</h3>
+          <p>Das Bundesprogramm für alternative Antriebe sieht bis zu 70 Prozent der Mehrkosten gegenüber Diesel vor, ausdrücklich auch für
+          Reise- und Gelegenheitsverkehr. Der bayerische Festbetrag je emissionsfreiem Linienbus liegt zwischen 30.000 und 105.000 Euro,
+          Antrag bis 1. Dezember des Vorjahres.</p><span class="src">Quellen: BMV/PtJ, StMB Bayern</span></div>
+        <div class="theme"><h3>Ladeinfrastruktur</h3>
+          <p>Bayern fördert Lade- und Tankinfrastruktur in Omnibusbetriebshöfen des Linienverkehrs mit 55 bis 60 Prozent, Photovoltaik
+          und Speicher eingeschlossen, wenn sie den Fahrzeugen dienen. Das neue Landesprogramm 2026–2029 sieht bis zu 80.000 Euro je
+          Ladepunkt vor, Aufrufe nur in kurzen Fenstern.</p><span class="src">Quellen: BayGVFG/RZÖPNV, StMWi Bayern</span></div>
+        <div class="theme"><h3>Photovoltaik und Speicher am Depot</h3>
+          <p>KfW und LfA Förderbank Bayern sehen zinsgünstige Kredite bis zur vollen Investitionssumme vor, mit Laufzeiten bis 30 Jahre.
+          Für kleine Unternehmen kommt ein Zuschuss für Elektrifizierungsmaßnahmen von 33 Prozent hinzu.</p><span class="src">Quellen: KfW 270, LfA, BAFA EEW</span></div>
+        <div class="theme"><h3>Erlöse und Digitalisierung</h3>
+          <p>Für jeden Elektrobus lässt sich die THG-Quote vermarkten, Antrag bis 28. Februar, Erlös laut Vermarktern im fünfstelligen
+          Bereich je Bus und Jahr. Der Digitalbonus Bayern sieht 50 Prozent Zuschuss für Digitalisierung und IT-Sicherheit kleiner Betriebe vor.</p>
+          <span class="src">Quellen: Umweltbundesamt, StMWi Bayern</span></div>
+      </div>
+
+      <div class="muster">
+        <strong>So steht ein Programm im Report</strong> (Auszug, Beispiel Bayern, Stand September 2026)
+        <table style="margin-top:10px">
+          <tr><th>Was</th><td>Das bayerische Programm sieht Festbeträge je emissionsfreiem Linienbus vor, von 30.000 € (Kleinbus) bis 105.000 € (Gelenkbus).</td></tr>
+          <tr><th>Für wen</th><td>Verkehrsunternehmen mit Betriebssitz in Bayern, überwiegend Linienverkehr nach § 42 PBefG.</td></tr>
+          <tr><th>Quote / Betrag</th><td>Festbetrag je Fahrzeug, Zuschlag Niederflur 10.000 €.</td></tr>
+          <tr><th>Frist</th><td>Antrag bis 1. Dezember des Vorjahres der Beschaffung bei der Bezirksregierung.</td></tr>
+          <tr><th>Nächster Schritt</th><td>Beschaffungsplanung für das Folgejahr festlegen und Antrag vorbereiten.</td></tr>
+        </table>
+        <p style="margin-top:12px"><a href="musterausgabe.html" target="_blank" rel="noopener">Vollständige Musterausgabe ansehen</a> (erfundener Betrieb, echte Programme)</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="fuer-wen">
+    <div class="wrap two">
+      <div>
+        <div class="eyebrow">Für wen</div>
+        <h2>Für Busbetriebe, die investieren wollen und keine Förderabteilung haben</h2>
+        <p class="lede">Linien-, Reise- und Gelegenheitsverkehr, fünf bis 150 Busse, Inhaber oder Geschäftsführung entscheidet selbst.
+        Bayern im Schwerpunkt, Bundesprogramme für alle.</p>
+        <ul class="plain">
+          <li>Sie planen Elektrobusse, wissen aber nicht, ob der nächste Aufruf für Sie passt und wann er kommt.</li>
+          <li>Sie bauen das Depot um, Ladeinfrastruktur oder Photovoltaik, und wollen keine Frist verpassen.</li>
+          <li>Sie haben E-Busse im Bestand und lassen laufende Erlöse liegen, weil niemand den Antrag kennt.</li>
+          <li>Sie haben einen Steuerberater, aber keinen, der Förderprogramme für Busse beobachtet.</li>
+        </ul>
+      </div>
+      <div>
+        <div class="facts">
+          <div class="fact"><b>5–150</b><span>Busse im Bestand</span></div>
+          <div class="fact"><b>§ 42–49</b><span>Linie, Reise, Gelegenheit</span></div>
+          <div class="fact"><b>BY + Bund</b><span>Landes- und Bundesprogramme</span></div>
+          <div class="fact"><b>1 Seite</b><span>je Monat, druckbar</span></div>
+        </div>
+        <p style="margin-top:24px;color:var(--ink-soft);font-size:15px"><strong>Auch für Kanzleien:</strong> Steuerberater und Anwälte mit
+        Verkehrsmandanten nutzen den Report als Frühwarnsystem für ihre Mandanten. Details unter Leistungen.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="hls">
+    <div class="wrap two">
+      <div>
+        <div class="eyebrow">Wer dahinter steht</div>
+        <h2>Aus einem Bushaus, nicht aus einer Agentur</h2>
+        <p class="lede">Fördersignal ist die Reportreihe der HLS (Handel, Leasing, Services) Deutschland GmbH in Dorfen bei München.
+        Fördersignal Bus ist ihr erstes Thema. HLS handelt, vermietet und finanziert Busse und plant selbst Elektrobusse und
+        Ladeinfrastruktur am Depot.</p>
+        <p style="margin-top:14px;color:var(--ink-soft)">Der Report entstand aus dem eigenen Bedarf: Wir wollten wissen, welche Programme
+        für unsere Vorhaben greifen und wann die Fristen laufen. Die Maschine, die das für uns beantwortet, beantwortet es jetzt auch für
+        andere Betriebe. HLS ist der erste Nutzer jeder Ausgabe.</p>
+      </div>
+      <div>
+        <h3 style="color:var(--petrol);margin-bottom:8px">Warum kostenlos?</h3>
+        <p style="color:var(--ink-soft);font-size:15px">Weil der Report unsere Visitenkarte ist. Wer einen Bus finanzieren, ein Fahrzeug
+        mieten oder über sein Depot sprechen will, weiß dann, wen er anruft. Ob daraus ein Gespräch wird, entscheiden Sie. Der Report kommt
+        so oder so.</p>
+        <h3 style="color:var(--petrol);margin:20px 0 8px">Datenhaltung</h3>
+        <p style="color:var(--ink-soft);font-size:15px">Datenbank in Frankfurt am Main, E-Mail-Versand über einen Anbieter mit Sitz in der EU.
+        Einwilligung per Double-Opt-in, Abmeldelink in jeder E-Mail. Keine Cookies, kein Tracking auf dieser Seite.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="eyebrow">Fragen</div>
+      <h2>Was Busunternehmer uns zuerst fragen</h2>
+      <div class="faq" style="margin-top:20px">
+        <details><summary>Was kostet der Report?</summary><p>Der Basisreport ist kostenlos: Monatsreport, Fristen-Alarm und Betriebsprofil. Kein Abo,
+          keine Kündigungsfrist. Erweiterungen, zum Beispiel eine Fassung für Kanzleien mit eigenem Briefkopf, können später kostenpflichtig sein.
+          Das sagen wir rechtzeitig, und der Basisreport bleibt davon unberührt.</p></details>
+        <details><summary>Stellen Sie den Antrag für mich?</summary><p>Nein. Der Report zeigt, welches Programm passt und was der nächste Schritt ist.
+          Den Antrag stellen Sie, Ihr Steuerberater oder ein Fördermittelberater. Wenn Sie niemanden haben, sagen Sie es uns.</p></details>
+        <details><summary>Woher kommen die Informationen?</summary><p>Ausschließlich aus den Originalquellen der Fördergeber: Richtlinien,
+          Aufrufe, Verkündungsblätter, Merkblätter. Jedes Programm im Report nennt seine Quelle mit Link. Sekundärquellen wie Blogs oder
+          Anbieterseiten verwenden wir nicht.</p></details>
+        <details><summary>Was passiert mit meinen Angaben?</summary><p>Flotte, Verkehrsart, Betriebssitz und Vorhaben dienen nur der Auswahl der
+          Programme. Sie liegen in einer Datenbank in Frankfurt am Main und werden nicht weitergegeben. Abmelden geht mit einem Klick.</p></details>
+        <details><summary>Ich bin nicht in Bayern. Lohnt sich das?</summary><p>Die Bundesprogramme, etwa für Elektrobusse und Ladeinfrastruktur, gelten
+          bundesweit und stehen in jedem Report. Landesprogramme decken wir zunächst nur für Bayern ab. Weitere Länder folgen.</p></details>
+        <details><summary>Wie schnell erfahre ich von einem neuen Aufruf?</summary><p>Quellen mit kurzen Fenstern prüfen wir täglich, alle anderen
+          wöchentlich. Öffnet ein Aufruf, geht der Fristen-Alarm in der Regel innerhalb weniger Tage raus, unabhängig vom Monatsreport.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section id="anmeldung">
+    <div class="wrap">
+      <div class="eyebrow">Anmeldung</div>
+      <h2>Report anfordern</h2>
+      <div class="signup-grid">
+        <div>
+          <div class="how">
+            <strong>So läuft es</strong>
+            <ol>
+              <li>Sie tragen Betrieb, E-Mail und ein paar Angaben zur Flotte ein.</li>
+              <li>Sie bestätigen die Anmeldung über den Link in unserer E-Mail (Double-Opt-in).</li>
+              <li>Die erste Ausgabe kommt zum nächsten Monatsanfang. Fristen-Alarme ab sofort.</li>
+            </ol>
+          </div>
+          <p style="margin-top:16px;font-size:14.5px;color:var(--grey)">Lieber erst ein Gespräch? <a href="mailto:report@foerdersignal.de">report@foerdersignal.de</a>
+          oder <a href="tel:+4980816048128">+49 (8081) 604 8128</a>.</p>
+        </div>
+        <div>
+          <div class="note" id="note-vorbereitung" hidden>Die Anmeldung ist vorübergehend nicht verfügbar. Fordern Sie den Report per E-Mail an:
+            <a href="mailto:report@foerdersignal.de?subject=F%C3%B6rdersignal%20Bus%20anfordern">report@foerdersignal.de</a>.</div>
+          <form id="signup" hidden novalidate>
+            <div class="row">
+              <div><label for="company">Betrieb *</label><input id="company" name="company_name" type="text" required maxlength="200" autocomplete="organization"></div>
+              <div><label for="contact">Ansprechperson</label><input id="contact" name="contact_name" type="text" maxlength="200" autocomplete="name"></div>
+            </div>
+            <div class="row">
+              <div><label for="email">E-Mail *</label><input id="email" name="email" type="email" required maxlength="254" autocomplete="email"></div>
+              <div><label for="fleet">Flottengröße (Busse)</label><input id="fleet" name="fleet_total" type="number" min="0" max="5000" step="1"></div>
+            </div>
+            <div class="row">
+              <div><label for="verkehrsart">Überwiegende Verkehrsart</label>
+                <select id="verkehrsart" name="verkehrsart">
+                  <option value="">Bitte wählen</option>
+                  <option value="§42">Linienverkehr (§ 42 PBefG)</option>
+                  <option value="§42a">Personenfernverkehr (§ 42a PBefG)</option>
+                  <option value="§43">Sonderformen des Linienverkehrs (§ 43 PBefG)</option>
+                  <option value="§44">Linienbedarfsverkehr (§ 44 PBefG)</option>
+                  <option value="§46">Gelegenheitsverkehr (§ 46 PBefG)</option>
+                  <option value="§48">Ausflugsfahrten / Ferienziel-Reisen (§ 48 PBefG)</option>
+                  <option value="§49">Mietomnibusverkehr (§ 49 PBefG)</option>
+                </select></div>
+              <div><label for="sitz">Betriebssitz in Bayern</label>
+                <select id="sitz" name="sitz_bayern"><option value="ja">ja</option><option value="nein">nein</option></select></div>
+            </div>
+            <fieldset><legend>Vorhaben (Mehrfachauswahl)</legend>
+              <label class="chk"><input type="checkbox" name="vorhaben" value="e-bus"> Elektrobusse beschaffen</label>
+              <label class="chk"><input type="checkbox" name="vorhaben" value="ladeinfrastruktur"> Ladeinfrastruktur im Depot oder auf der Strecke</label>
+              <label class="chk"><input type="checkbox" name="vorhaben" value="pv"> Photovoltaik und Speicher am Depot</label>
+              <label class="chk"><input type="checkbox" name="vorhaben" value="digitalisierung"> Digitalisierung, IT-Sicherheit</label>
+            </fieldset>
+            <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+            <label class="chk"><input type="checkbox" name="consent" id="consent" required>
+              <span>Ich möchte den monatlichen Fachreport Fördersignal Bus per E-Mail erhalten und willige ein, dass die HLS Deutschland GmbH meine Angaben
+              zu diesem Zweck verarbeitet. Die Anmeldung wird erst nach Bestätigung per E-Mail wirksam (Double-Opt-in). Ich kann die Einwilligung
+              jederzeit über den Abmeldelink in jeder E-Mail widerrufen. Details in der <a href="#datenschutz">Datenschutzerklärung</a>. *</span></label>
+            <p><button type="submit" id="btn">Anmeldung absenden</button></p>
+            <div class="msg" id="msg" role="status"></div>
+          </form>
+        </div>
+      </div>
+      <div class="disclaimer">Fördersignal Bus ist eine redaktionelle Information der HLS Deutschland GmbH. Sie ersetzt keine Rechts- oder
+      Steuerberatung. Für Vollständigkeit, Richtigkeit und Fristen wird keine Gewähr übernommen; maßgeblich sind ausschließlich die
+      Programmbedingungen der jeweiligen Fördergeber.</div>
+    </div>
+  </section>
+
+  <div class="wrap">
+  <article class="legal" id="impressum">
+    <h2>Impressum</h2>
+    <p>Anbieterkennzeichnung gemäß § 5 DDG (Digitale-Dienste-Gesetz), § 18 Abs. 2 MStV</p>
+    <p><strong>Anbieter</strong><br>HLS (Handel, Leasing, Services) Deutschland GmbH<br>Fördersignal Bus ist ein Produkt der HLS Deutschland GmbH.<br>
+    Rechtsform: GmbH · Sitz der Gesellschaft: Leipzig · Betriebsstätte: Dorfen</p>
+    <p><strong>Vertretungsberechtigte</strong><br>Geschäftsführer: Gerhard Geschwinder</p>
+    <p><strong>Anschrift der Betriebsstätte</strong><br>Büro:<br>Bergstr. 18 a<br>84405 Dorfen<br>Deutschland<br>
+    <small>Dies ist die ladungsfähige Anschrift und der Ort des Geschäftsbetriebs. Sitz der Gesellschaft und Registergericht sind Leipzig (siehe Registereintrag).</small></p>
+    <p><strong>Kontakt</strong><br>E-Mail: <a href="mailto:report@foerdersignal.de">report@foerdersignal.de</a><br>Telefon: <a href="tel:+4980816048128">+49 (8081) 604 8128</a><br>Telefonisch erreichbar werktags 08:30–16:30 Uhr</p>
+    <p><strong>Registereintrag</strong><br>Handelsregister: Amtsgericht Leipzig<br>Registernummer: HRB 37458</p>
+    <p><strong>Umsatzsteuer-ID</strong><br>USt-IdNr. gemäß § 27a UStG: DE331770803</p>
+    <p><strong>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</strong><br>Gerhard Geschwinder, Anschrift wie oben</p>
+    <p><strong>Streitschlichtung</strong><br>Wir sind nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+    Die EU-Plattform zur Online-Streitbeilegung wurde zum 20.07.2025 eingestellt; ein entsprechender Link entfällt daher.</p>
+    <p><strong>Haftung für Inhalte und Links</strong><br>Die Inhalte dieser Website und des Fachreports Fördersignal Bus wurden mit Sorgfalt erstellt. Sie sind redaktionelle
+    Informationen und ersetzen keine Rechts- oder Steuerberatung. Für Richtigkeit, Vollständigkeit, Aktualität und Fristen kann keine Gewähr übernommen werden;
+    maßgeblich sind ausschließlich die Programmbedingungen der jeweiligen Fördergeber. Für externe Links wird keine Haftung übernommen; für den Inhalt der
+    verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.</p>
+    <p><a href="#datenschutz">Zur Datenschutzerklärung</a> · <a href="#top">Zurück zur Startseite</a></p>
+  </article>
+
+  <article class="legal" id="datenschutz">
+    <h2>Datenschutzerklärung</h2>
+    <p><small>Stand: September 2026 · gemäß Art. 13 DSGVO und § 25 TDDDG</small></p>
+    <p><strong>1. Verantwortlicher</strong><br>HLS (Handel, Leasing, Services) Deutschland GmbH, Gerhard Geschwinder (Geschäftsführer), Büro: Bergstr. 18 a, 84405 Dorfen,
+    E-Mail: report@foerdersignal.de, Telefon: +49 (8081) 604 8128. Die vollständigen Kontaktdaten finden Sie im <a href="#impressum">Impressum</a>.<br>
+    <em>Datenschutzbeauftragte/r:</em> Ein Datenschutzbeauftragter ist derzeit nicht benannt. Eine Benennungspflicht nach Art. 37 DSGVO / § 38 BDSG besteht in der
+    Regel erst, wenn mindestens 20 Personen ständig mit der automatisierten Verarbeitung personenbezogener Daten beschäftigt sind.</p>
+    <p><strong>2. Hosting und Server-Logfiles</strong><br>Diese Website wird bei Netlify, Inc., San Francisco, USA („Netlify") gehostet. Beim Aufruf erhebt Netlify
+    automatisch technische Zugriffsdaten in Server-Logfiles: IP-Adresse, Datum und Uhrzeit der Anfrage, aufgerufene Seite und Referrer, Browsertyp und Betriebssystem.
+    Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einem stabilen, sicheren Betrieb). Die Daten werden nicht mit anderen Datenquellen
+    zusammengeführt und nach Angaben des Anbieters in der Regel nach 30 Tagen gelöscht.<br>
+    <em>Datenübermittlung in die USA:</em> Netlify hat seinen Sitz in den USA; personenbezogene Daten (insbesondere IP-Adressen) können daher in die USA übermittelt
+    werden. Netlify ist Teilnehmer des EU-U.S. Data Privacy Framework (DPF), auf dessen Grundlage die EU-Kommission per Angemessenheitsbeschluss nach Art. 45 DSGVO ein
+    angemessenes Datenschutzniveau für zertifizierte US-Unternehmen festgestellt hat. Ergänzend verwendet Netlify die EU-Standardvertragsklauseln (Art. 46 Abs. 2 lit. c
+    DSGVO) und stellt einen Auftragsverarbeitungsvertrag nach Art. 28 DSGVO bereit. Weitere Informationen: netlify.com/privacy.</p>
+    <p><strong>3. Cookies und Tracking</strong><br>Diese Website setzt keine Cookies, kein Analyse-Tool und keine externen Einbettungen (Schriften, Videos, Karten) ein,
+    die Daten an Dritte übertragen. Ein Cookie-Banner ist deshalb nach § 25 TDDDG nicht erforderlich. Sollten künftig Analyse- oder Einbettungsdienste ergänzt werden,
+    wird vor deren Laden eine Einwilligung eingeholt.</p>
+    <p><strong>4. Anmeldung zum Fachreport (Double-Opt-in)</strong><br>Wenn Sie den Fachreport Fördersignal Bus anfordern, verarbeiten wir die Angaben aus dem Formular:
+    Name des Betriebs, Ansprechperson (freiwillig), E-Mail-Adresse sowie die Betriebsangaben Flottengröße, Verkehrsart, Betriebssitz und Vorhaben. Zweck ist die
+    Zusammenstellung der für Ihren Betrieb passenden Förderprogramme und der Versand des Reports und der Fristen-Alarme per E-Mail. Rechtsgrundlage ist Ihre Einwilligung,
+    Art. 6 Abs. 1 lit. a DSGVO. Die Anmeldung wird erst wirksam, wenn Sie sie über den Link in unserer Bestätigungs-E-Mail bestätigen (Double-Opt-in); ohne Bestätigung
+    wird nichts versendet und die Anmeldung nach 14 Tagen gelöscht.<br>
+    <em>Nachweis der Einwilligung:</em> Zum Nachweis speichern wir Zeitpunkt von Anmeldung und Bestätigung, eine pseudonymisierte (gesalzen gehashte) Form der IP-Adresse,
+    die Browserkennung und den Wortlaut der Einwilligung. Die Bestätigungs- und Abmeldelinks enthalten Einmal-Token, die nur in gehashter Form gespeichert werden.<br>
+    <em>Speicherort und Dienstleister:</em> Die Daten werden in einer Datenbank in Frankfurt am Main (Supabase, Hosting-Region EU, Auftragsverarbeitung nach Art. 28 DSGVO)
+    gespeichert. Der E-Mail-Versand erfolgt über Brevo (Sendinblue SAS, Paris, Frankreich) mit Servern in der EU auf Grundlage eines Auftragsverarbeitungsvertrags.<br>
+    <em>Widerruf und Löschung:</em> Sie können die Einwilligung jederzeit widerrufen, über den Abmeldelink in jeder E-Mail oder per Nachricht an report@foerdersignal.de.
+    Nach dem Widerruf wird nichts mehr versendet; die Betriebsangaben werden gelöscht. Den Einwilligungs- und Widerrufsnachweis bewahren wir für die Dauer der
+    gesetzlichen Verjährungsfristen (drei Jahre zum Jahresende) auf, Rechtsgrundlage Art. 6 Abs. 1 lit. f DSGVO.</p>
+    <p><strong>5. Betriebsprofil und Auswahl der Programme</strong><br>Die Betriebsangaben dienen ausschließlich der regelbasierten Auswahl passender Förderprogramme
+    (zum Beispiel: Betriebssitz Bayern und Linienverkehr führen zur bayerischen Busförderung). Es findet keine automatisierte Entscheidung mit rechtlicher Wirkung im Sinne
+    von Art. 22 DSGVO statt. Die Angaben werden nicht für andere Zwecke verwendet und nicht an Dritte weitergegeben.</p>
+    <p><strong>6. Kontaktaufnahme per E-Mail oder Telefon</strong><br>Wenn Sie uns kontaktieren, verarbeiten wir die mitgeteilten Daten ausschließlich zur Bearbeitung Ihrer
+    Anfrage, Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Anfrage) oder lit. f DSGVO (berechtigtes Interesse an Kommunikation). Die Daten werden gelöscht, sobald sie für
+    die Bearbeitung nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
+    <p><strong>7. Weitergabe an Dritte</strong><br>Eine Übermittlung Ihrer Daten an Dritte erfolgt nur an die genannten Auftragsverarbeiter (Netlify für das Hosting der
+    Website, Supabase für die Datenbank, Brevo für den E-Mail-Versand) im Rahmen der technischen Bereitstellung und auf Grundlage von Auftragsverarbeitungsverträgen,
+    oder wenn eine gesetzliche Verpflichtung besteht. Ihre Daten werden nicht verkauft, nicht vermietet und nicht für Werbung Dritter genutzt.</p>
+    <p><strong>8. Ihre Rechte</strong><br>Ihnen stehen nach der DSGVO zu: Auskunft (Art. 15), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung
+    (Art. 18), Datenübertragbarkeit (Art. 20), Widerspruch (Art. 21) sowie Widerruf einer erteilten Einwilligung mit Wirkung für die Zukunft (Art. 7 Abs. 3). Sie haben
+    außerdem das Recht auf Beschwerde bei einer Datenschutzaufsichtsbehörde (Art. 77 DSGVO). Zuständige Aufsichtsbehörde: Sächsische Datenschutz- und
+    Transparenzbeauftragte, Dresden (Sitz der Gesellschaft: Leipzig, Sachsen).</p>
+    <p><strong>9. Änderungen dieser Erklärung</strong><br>Diese Datenschutzerklärung wird angepasst, sobald sich der Funktionsumfang der Website oder des Reports ändert.
+    Es gilt jeweils die zum Zeitpunkt Ihres Besuchs veröffentlichte Fassung.</p>
+    <p><a href="#impressum">Zum Impressum</a> · <a href="#top">Zurück zur Startseite</a></p>
+  </article>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <span><strong>Fördersignal Bus</strong> · Thema Bus der Reportreihe Fördersignal · Ein Produkt der HLS (Handel, Leasing, Services) Deutschland GmbH · Büro: Bergstr. 18 a, 84405 Dorfen</span>
+      <span><a href="#impressum">Impressum</a> · <a href="#datenschutz">Datenschutz</a> · <a href="mailto:report@foerdersignal.de">Kontakt</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Schalter: true seit 16.09.2026 (Freigabe Gerhard). Auf false setzen, wenn die Anmeldung vorübergehend abgeschaltet werden soll.
+  var LIVE_FORM = true;
+  var SUPABASE_URL = "https://ahfnpgxovygqmysvqkbz.supabase.co";
+  var ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFoZm5wZ3hvdnlncW15c3Zxa2J6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU3MDE1MDUsImV4cCI6MjEwMTI3NzUwNX0.vijSO5dSALVzSZVinhNnDHxqrT3Vej4X2pNkHKM1zJc";
+
+  (function () {
+    var form = document.getElementById("signup");
+    var note = document.getElementById("note-vorbereitung");
+    if (!LIVE_FORM) { note.hidden = false; return; }
+    form.hidden = false;
+    form.addEventListener("submit", function (ev) {
+      ev.preventDefault();
+      var msg = document.getElementById("msg"), btn = document.getElementById("btn");
+      msg.className = "msg"; msg.textContent = "";
+      if (!form.company_name.value.trim() || !form.email.value.trim() || !form.consent.checked) {
+        msg.className = "msg err"; msg.textContent = "Bitte Betrieb, E-Mail und Einwilligung ausfüllen."; return;
+      }
+      var vorhaben = Array.prototype.slice.call(form.querySelectorAll("input[name=vorhaben]:checked")).map(function (c) { return c.value; });
+      var payload = {
+        company_name: form.company_name.value.trim(), contact_name: form.contact_name.value.trim(), email: form.email.value.trim(),
+        fleet_total: parseInt(form.fleet_total.value || "0", 10), verkehrsart: form.verkehrsart.value, sitz_bayern: form.sitz_bayern.value === "ja",
+        vorhaben: vorhaben, consent: true, website: form.website.value
+      };
+      btn.disabled = true;
+      fetch(SUPABASE_URL + "/functions/v1/subscribe", {
+        method: "POST", headers: { "Content-Type": "application/json", "apikey": ANON_KEY, "Authorization": "Bearer " + ANON_KEY },
+        body: JSON.stringify(payload)
+      }).then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+        .then(function (res) {
+          if (res.ok) { msg.className = "msg ok"; msg.textContent = "Danke. Bitte bestätigen Sie die Anmeldung über den Link in der E-Mail, die wir Ihnen geschickt haben."; form.reset(); }
+          else { msg.className = "msg err"; msg.textContent = res.j.error || "Die Anmeldung konnte nicht gespeichert werden."; }
+        }).catch(function () { msg.className = "msg err"; msg.textContent = "Verbindung fehlgeschlagen. Bitte später erneut versuchen."; })
+        .finally(function () { btn.disabled = false; });
+    });
+  })();
+</script>
+</body>
+</html>

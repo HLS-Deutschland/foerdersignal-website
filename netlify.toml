@@ -1,0 +1,29 @@
+# Fördersignal Bus – Netlify-Konfiguration (statische Seite, keine Build-Schritte)
+[build]
+  publish = "."
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+
+# Umlaut-Domain und www leiten auf die ASCII-Domain, damit Links und Mails einheitlich sind
+[[redirects]]
+  from = "https://xn--frdersignal-rfb.de/*"
+  to = "https://foerdersignal.de/:splat"
+  status = 301
+  force = true
+[[redirects]]
+  from = "https://www.xn--frdersignal-rfb.de/*"
+  to = "https://foerdersignal.de/:splat"
+  status = 301
+  force = true
+[[redirects]]
+  from = "https://www.foerdersignal.de/*"
+  to = "https://foerdersignal.de/:splat"
+  status = 301
+  force = true
