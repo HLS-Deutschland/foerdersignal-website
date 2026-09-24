@@ -1,4 +1,13 @@
-# Veröffentlichung der Website – Schritte für Gerhard (Stand 16.09.2026)
+# Veröffentlichung der Website – Stand 16.09.2026, 18:25 Uhr
+
+**Erledigt:** Repository `HLS-Deutschland/foerdersignal-website` (main) und Netlify-Projekt `foerdersignal` → **https://foerdersignal.netlify.app**
+(per Upload deployt, Formular live getestet). Schritte 1–3 unten sind damit durch. **Offen: Schritt 4 (Domain) und Schritt 5 (Brevo)**, plus
+einmalig: Netlify-GitHub-App für das neue Repo freischalten (github.com/settings/installations → Netlify → Repository access → foerdersignal-website),
+damit künftige Änderungen automatisch aus `main` deployen. Bis dahin: Änderungen als Upload unter app.netlify.com/projects/foerdersignal/deploys.
+
+---
+
+## Ursprüngliche Schrittliste
 
 Ins Repository gehören genau diese vier Dateien aus `03_Auftritt/`: `index.html`, `musterausgabe.html`, `netlify.toml`, `README-Veroeffentlichung.md`.
 Nicht hochladen: `index_v1_2026-09-15.html.bak`, `DNS-Eintraege_foerdersignal.de.md`.

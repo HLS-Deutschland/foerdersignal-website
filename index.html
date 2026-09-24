@@ -78,6 +78,37 @@
   .not{margin-top:34px;border-top:1px solid var(--line-dark);padding-top:22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px 28px;font-size:15px;color:rgba(246,239,217,.8)}
   .not strong{color:var(--paper)}
 
+  .bund{background:var(--white);border:2px solid var(--amber);border-radius:6px;padding:22px;margin-top:26px}
+  .bund .kopf{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:6px}
+  .bund .kopf h3{color:var(--petrol-dark);font-size:19px}
+  .bund .gesamt{font-family:var(--font-display);font-size:15px;color:var(--petrol-dark)}
+  .bund .gesamt b{font-size:20px}
+  .kette{display:grid;grid-template-columns:1fr 44px 1fr;gap:0;align-items:stretch;margin-top:16px}
+  @media(max-width:720px){.kette{grid-template-columns:1fr;gap:12px}.kette .pfeil{height:32px;width:100%}}
+  .kette .schritt{border:1px solid var(--line);border-radius:6px;padding:16px 18px;background:var(--paper-soft)}
+  .kette .pfeil{display:flex;align-items:center;justify-content:center;color:var(--amber-dim);font-family:var(--font-display);font-size:22px}
+  .kette .schritt .tag{display:block;font-family:var(--font-display);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber-dim);margin-bottom:6px}
+  .kette .schritt h4{margin:0 0 4px;font-size:16.5px;color:var(--petrol)}
+  .kette .schritt .preis{font-family:var(--font-display);font-size:22px;color:var(--petrol-dark);margin:2px 0 6px}
+  .kette .schritt p{font-size:14px;color:var(--ink-soft);margin:0}
+  .kette .schritt ul{margin:8px 0 0;padding-left:18px;font-size:13.5px;color:var(--ink-soft)}
+  .kette .schritt li{margin:3px 0}
+  .bund .hinweis{margin-top:16px;background:var(--ink);color:var(--paper);border-radius:4px;padding:12px 14px;font-size:14.5px}
+  .bund .hinweis b{color:var(--amber)}
+  .stufen{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:26px}
+  .stufe{background:var(--white);border:1px solid var(--line);border-radius:6px;padding:20px;display:flex;flex-direction:column}
+  .stufe.haupt{border:2px solid var(--amber)}
+  .stufe .tag{display:inline-block;font-family:var(--font-display);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber-dim);margin-bottom:8px}
+  .stufe h3{color:var(--petrol);margin-bottom:6px}
+  .stufe .preis{font-family:var(--font-display);font-size:24px;color:var(--petrol-dark);margin:6px 0 2px}
+  .stufe .preis small{font-family:var(--font-body);font-size:13px;color:var(--grey);display:block;font-weight:400}
+  .stufe p{font-size:14.5px;color:var(--ink-soft);margin-top:8px}
+  .stufe ul{margin:10px 0 0;padding-left:18px;font-size:14px;color:var(--ink-soft)}
+  .stufe li{margin:4px 0}
+  .ablauf{counter-reset:schritt;list-style:none;margin:24px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
+  .ablauf li{counter-increment:schritt;border-top:2px solid var(--amber);padding-top:10px;font-size:14.5px;color:var(--ink-soft)}
+  .ablauf li::before{content:"Schritt " counter(schritt);display:block;font-family:var(--font-display);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber-dim);margin-bottom:4px}
+  .ablauf li b{color:var(--petrol-dark);display:block;margin-bottom:2px}
   .themes{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:26px}
   .theme{background:var(--white);border:1px solid var(--line);border-radius:6px;padding:20px}
   .theme h3{color:var(--petrol);font-size:17px;margin-bottom:8px}
@@ -99,6 +130,9 @@
   .fact b{display:block;font-family:var(--font-display);font-size:20px;color:var(--petrol-dark)}
   .fact span{font-size:13.5px;color:var(--grey)}
 
+  .person{display:flex;gap:18px;align-items:center;margin-top:22px;padding:16px;background:var(--white);border:1px solid var(--line);border-radius:6px}
+  .person img{width:96px;height:96px;object-fit:cover;border-radius:8px;border:3px solid var(--amber);flex:none}
+  @media(max-width:520px){.person{flex-direction:column;align-items:flex-start}}
   .faq details{border-top:1px solid var(--line);padding:14px 0}
   .faq details:last-child{border-bottom:1px solid var(--line)}
   .faq summary{cursor:pointer;font-weight:600;color:var(--petrol-dark);font-size:16.5px;list-style:none;display:flex;justify-content:space-between;gap:12px}
@@ -143,6 +177,7 @@
     <nav class="nav-links">
       <a href="#was">Was wir tun</a>
       <a href="#leistungen">Leistungen</a>
+      <a href="#antrag">Antragsbegleitung</a>
       <a href="#themen">Themen</a>
       <a href="#fuer-wen">Für wen</a>
       <a href="#hls">Wer dahinter steht</a>
@@ -202,8 +237,8 @@
     <div class="wrap">
       <div class="eyebrow">Leistungen</div>
       <h2>Was Fördersignal Bus leistet, und was bewusst nicht</h2>
-      <p class="lede">Der Report informiert und signalisiert. Die Entscheidung, der Antrag und die rechtliche oder steuerliche Prüfung bleiben bei
-      Ihnen und Ihren Beratern. Diese Grenze ist Absicht, nicht Lücke.</p>
+      <p class="lede">Der Report informiert und signalisiert. Wer bei einem passenden Programm Unterstützung will, bekommt die
+      Antragsbegleitung zum Festpreis. Die rechtliche und steuerliche Prüfung bleibt bei Ihren Beratern.</p>
       <div class="offer">
         <div class="item"><span class="tag">Basisreport · kostenlos</span><h3>Der Monatsreport</h3>
           <p>Drei bis fünf Programme, die zu Ihrem Profil passen, je fünf Zeilen. Als E-Mail zum Monatsanfang, druckbar als eine Seite.
@@ -214,6 +249,9 @@
         <div class="item"><span class="tag">Basisreport · kostenlos</span><h3>Das Betriebsprofil</h3>
           <p>Sie geben Ihre Angaben einmal bei der Anmeldung. Ändert sich Ihre Flotte oder Ihr Vorhaben, sagen Sie es uns per Antwort auf den
           Report. Der nächste Report rechnet damit.</p></div>
+        <div class="item"><span class="tag">Kostenpflichtig · Festpreis</span><h3>Die Antragsbegleitung</h3>
+          <p>Passt ein Programm, bereiten wir Projektskizze und Antrag vor: Zahlen, Konzept, Formulare. Eingereicht und unterschrieben
+          wird vom Betrieb. Zwei Stufen, feste Preise, kein Prozentsatz. <a href="#antrag" style="color:var(--amber)">Details und Preise</a>.</p></div>
         <div class="item"><span class="tag">Auf Wunsch</span><h3>Das Einordnungsgespräch</h3>
           <p>Wenn ein Programm passt und Sie über Beschaffung, Finanzierung, Leasing oder Depot sprechen wollen, ein Gespräch mit HLS.
           Wirtschaftliche Einordnung, keine Rechts- oder Steuerberatung.</p></div>
@@ -225,11 +263,130 @@
           Bus ist das erste Thema. Weitere Themen folgen unter derselben Marke, jeweils mit eigenem Report.</p></div>
       </div>
       <div class="not">
-        <div><strong>Keine Antragstellung.</strong> Wir stellen keine Förderanträge für Sie und nehmen keine Provision für Anträge.</div>
+        <div><strong>Keine Provision.</strong> Antragsbegleitung gibt es nur zum Festpreis, nie als Prozentsatz Ihrer Förderung.
+        Eingereicht wird im Namen und mit Unterschrift Ihres Betriebs.</div>
         <div><strong>Keine Rechts- oder Steuerberatung.</strong> Ob ein Programm für Sie greift, prüfen Ihr Steuerberater oder Ihr Anwalt.</div>
         <div><strong>Keine Weitergabe Ihrer Daten.</strong> Ihre Angaben dienen nur dem Report. Kein Adresshandel, keine Werbung Dritter.</div>
         <div><strong>Keine Gewähr für Fristen.</strong> Maßgeblich sind immer die Programmbedingungen des Fördergebers.</div>
       </div>
+    </div>
+  </section>
+
+  <section id="antrag">
+    <div class="wrap">
+      <div class="eyebrow">Antragsbegleitung · kostenpflichtig</div>
+      <h2>Passt ein Programm, machen wir den Antrag fertig. Zum Festpreis.</h2>
+      <p class="lede">Der Report zeigt, welches Programm greift. Der Engpass kommt danach: Skizze, Zahlen, Konzept, Formulare. Wir bereiten
+      die Unterlagen vor, Sie reichen ein und unterschreiben. Der Preis steht vorher fest und hängt nicht von der Höhe Ihrer Förderung ab.</p>
+
+      <div class="bund">
+        <div class="kopf">
+          <h3>Bundesförderung Elektrobusse: ein Verfahren, zwei Stufen</h3>
+          <span class="gesamt">Gesamt bei Aufforderung: <b>7.800 €</b> netto</span>
+        </div>
+        <p style="color:var(--ink-soft);font-size:15px">Das Verfahren des Bundes läuft zweistufig. Zuerst die Skizze im Wettbewerb.
+        Fällt sie positiv aus, fordert der Projektträger zum förmlichen Antrag auf. Beide Stufen gehören zusammen.</p>
+        <div class="kette">
+          <div class="schritt">
+            <span class="tag">Stufe 1 · immer</span>
+            <h4>Projektskizze</h4>
+            <div class="preis">2.900 €</div>
+            <p>netto, fällig bei Beauftragung und Übergabe. Ohne Skizze kein Verfahren.</p>
+            <ul>
+              <li>Einordnung in Fördersäule und Kategorie</li>
+              <li>Einsatz- und Energiekonzept aus Ihren Umlaufdaten</li>
+              <li>CO₂-Vermeidung und Fördermitteleffizienz</li>
+              <li>Ausgaben- und Förderbedarfsrechnung</li>
+              <li>Meilensteinplan und Einreichungsfahrplan</li>
+            </ul>
+          </div>
+          <div class="pfeil" aria-hidden="true">→</div>
+          <div class="schritt">
+            <span class="tag">Stufe 2 · bei Aufforderung verbindlich</span>
+            <h4>Förmlicher Antrag</h4>
+            <div class="preis">4.900 €</div>
+            <p>netto, fällig sobald der Projektträger zum Antrag auffordert. Diese Stufe ist dann Teil des Auftrags.</p>
+            <ul>
+              <li>Gesamtvorhabenbeschreibung</li>
+              <li>Antragsformulare und Anlagen</li>
+              <li>Abgleich mit den Vorgaben des Projektträgers</li>
+              <li>Begleitung bis zur Einreichung</li>
+            </ul>
+          </div>
+        </div>
+        <div class="hinweis"><b>Wichtig:</b> Stufe 2 ist nicht optional. Fordert der Projektträger nach positiver Skizze zum Antrag auf,
+        wird sie verbindlich und berechnet. Kommt keine Aufforderung, entfällt sie und es bleibt bei 2.900 €. Sie zahlen also nur dann
+        den vollen Preis, wenn Ihre Skizze erfolgreich war.</div>
+      </div>
+
+      <h3 style="margin-top:34px;color:var(--petrol-dark);font-size:19px">Bayerische Programme</h3>
+      <div class="stufen" style="margin-top:14px">
+        <div class="stufe"><span class="tag">Fahrzeuge</span><h3>Klimabus-Festbetrag</h3>
+          <div class="preis">1.500 €<small>netto, je Antrag, unabhängig von der Stückzahl</small></div>
+          <p>Antrag auf die bayerischen Festbeträge je emissionsfreiem Linienbus bei der Bezirksregierung, Stichtag 1. Dezember.
+          Fahrzeugbestandsdatenblatt, Formulare, Nachweise, Fristüberwachung.</p>
+          <ul>
+            <li>Berechnung der Festbeträge je Buskategorie</li>
+            <li>Vorbefüllte Formulare und Erklärungen</li>
+            <li>Vollständigkeitsprüfung der Anlagen</li>
+          </ul>
+          <p style="margin-top:10px"><b>Zusätzlich 500 €</b> netto für Auszahlungsantrag und Verwendungsnachweis nach der Beschaffung.</p></div>
+        <div class="stufe"><span class="tag">Infrastruktur</span><h3>Depot und Ladeinfrastruktur</h3>
+          <div class="preis">auf Anfrage<small>Festpreis nach dem Vorgespräch</small></div>
+          <p>Lade- und Tankinfrastruktur im Betriebshof, auf Wunsch mit Photovoltaik und Speicher. Das ist ein Bauvorhaben: Erläuterungsbericht,
+          Pläne, Kostenberechnung, Stellungnahme des Aufgabenträgers, Aussage der Baugenehmigungsbehörde, Einreichung über die
+          Fördermanagementplattform Bayern.</p>
+          <ul>
+            <li>Koordination von Planer, Netzbetreiber und Anbietern</li>
+            <li>Berechnung des förderfähigen ÖPNV-Anteils</li>
+            <li>Abstimmung mit der Bewilligungsstelle vor Einreichung</li>
+          </ul>
+          <p style="margin-top:10px">Umfang und Preis legen wir nach einem kostenfreien Vorgespräch fest, weil Depots sehr verschieden sind.
+          Die Fachplanung selbst gehört zum Planungsbüro und ist nicht enthalten.</p></div>
+      </div>
+      <p style="margin-top:16px;font-size:14.5px;color:var(--grey)">Weitere Programme auf Anfrage. Alle Preise netto, zuzüglich
+      Umsatzsteuer. Keine Erfolgsbeteiligung, kein Prozentsatz vom Zuschuss.</p>
+
+      <div class="two" style="margin-top:34px">
+        <div>
+          <h3 style="color:var(--petrol);margin-bottom:6px">Was wir übernehmen</h3>
+          <ul class="plain">
+            <li>Aufbereitung Ihrer Zahlen zu einer vollständigen Skizze nach der Vorlage des Projektträgers</li>
+            <li>Rechenwerk: Mehrausgaben, Förderquote, CO₂-Vermeidung, Wirtschaftlichkeit</li>
+            <li>Einsatz- und Energiekonzept aus Umläufen, Depot und Netzanschluss</li>
+            <li>Vollständigkeitsprüfung gegen die Checkliste des Projektträgers</li>
+            <li>Termin- und Fristenüberwachung bis zur Einreichung</li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="color:var(--petrol);margin-bottom:6px">Was Ihr Betrieb liefert</h3>
+          <ul class="plain">
+            <li>Flottenliste mit Baujahr, Laufleistung und Antrieb</li>
+            <li>Umlaufdaten der Fahrzeuge, die ersetzt werden sollen</li>
+            <li>Angebote für Fahrzeuge und Ladetechnik, Vergleichsangebot Diesel</li>
+            <li>Depotdaten und Auskunft des Netzbetreibers zum Anschluss</li>
+            <li>Unternehmenskennzahlen und Unterschrift bei der Einreichung</li>
+          </ul>
+        </div>
+      </div>
+
+      <ol class="ablauf">
+        <li><b>Vorgespräch</b>Wir prüfen an Ihren Eckdaten, ob das Vorhaben im laufenden Aufruf Aussicht hat. Kostenfrei.</li>
+        <li><b>Beauftragung</b>Auftrag und Festpreis schriftlich, mit Terminplan und Datenfrist für Ihre Unterlagen.</li>
+        <li><b>Unterlagen</b>Sie laden Ihre Daten über einen persönlichen Link hoch. Wir fragen nach, was fehlt.</li>
+        <li><b>Entwurf</b>Sie erhalten die fertige Skizze zur Prüfung und Freigabe, mit Zeit für Korrekturen.</li>
+        <li><b>Einreichung</b>Ihr Betrieb reicht ein und unterschreibt. Wir begleiten Rückfragen des Projektträgers.</li>
+      </ol>
+
+      <div class="note" style="margin-top:28px">
+        <strong>Grenzen, die wir offen nennen:</strong> Eine Bewilligung kann niemand zusagen, die Programme sind wettbewerblich.
+        Wir leisten keine Rechts- und keine Steuerberatung. Eingereicht und unterschrieben wird von Ihrem Betrieb. Je Förderaufruf
+        nehmen wir nur eine begrenzte Zahl von Mandaten an, damit jede Skizze die nötige Sorgfalt bekommt.
+        Es gelten die <a href="#bedingungen">Bedingungen der Antragsbegleitung</a>.
+      </div>
+
+      <p style="margin-top:20px"><a class="btn btn-petrol" href="mailto:report@foerdersignal.de?subject=Antragsbegleitung%20%E2%80%93%20Vorgespr%C3%A4ch">Vorgespräch anfragen</a>
+      <span style="margin-left:12px;font-size:14.5px;color:var(--grey)">oder <a href="tel:+4980816048128">+49 (8081) 604 8128</a></span></p>
     </div>
   </section>
 
@@ -309,6 +466,14 @@
         <p style="margin-top:14px;color:var(--ink-soft)">Der Report entstand aus dem eigenen Bedarf: Wir wollten wissen, welche Programme
         für unsere Vorhaben greifen und wann die Fristen laufen. Die Maschine, die das für uns beantwortet, beantwortet es jetzt auch für
         andere Betriebe. HLS ist der erste Nutzer jeder Ausgabe.</p>
+        <div class="person">
+          <img src="gerhard.jpg" alt="Gerhard Geschwinder">
+          <div><div class="eyebrow" style="margin-bottom:4px">Gemacht von einem aus der Branche</div>
+          <strong>Gerhard Geschwinder</strong>, Geschäftsführer HLS Deutschland GmbH<br>
+          <span style="color:var(--ink-soft);font-size:15px">Fährt selbst Bus im Linienverkehr und kennt den Betrieb von innen. Fördersignal Bus entsteht aus der
+          eigenen Praxis, nicht am Reißbrett. Wer eine Frage zum Report hat, erreicht ihn direkt unter
+          <a href="mailto:report@foerdersignal.de">report@foerdersignal.de</a>.</span></div>
+        </div>
       </div>
       <div>
         <h3 style="color:var(--petrol);margin-bottom:8px">Warum kostenlos?</h3>
@@ -329,9 +494,12 @@
       <div class="faq" style="margin-top:20px">
         <details><summary>Was kostet der Report?</summary><p>Der Basisreport ist kostenlos: Monatsreport, Fristen-Alarm und Betriebsprofil. Kein Abo,
           keine Kündigungsfrist. Erweiterungen, zum Beispiel eine Fassung für Kanzleien mit eigenem Briefkopf, können später kostenpflichtig sein.
-          Das sagen wir rechtzeitig, und der Basisreport bleibt davon unberührt.</p></details>
-        <details><summary>Stellen Sie den Antrag für mich?</summary><p>Nein. Der Report zeigt, welches Programm passt und was der nächste Schritt ist.
-          Den Antrag stellen Sie, Ihr Steuerberater oder ein Fördermittelberater. Wenn Sie niemanden haben, sagen Sie es uns.</p></details>
+          Das sagen wir rechtzeitig, und der Basisreport bleibt davon unberührt. Die Antragsbegleitung ist ein eigenes, kostenpflichtiges
+          Angebot und keine Voraussetzung für den Report.</p></details>
+        <details><summary>Stellen Sie den Antrag für mich?</summary><p>Auf Wunsch bereiten wir Projektskizze und Antrag für die
+          Bundesförderung Elektrobusse vor, zum Festpreis: 2.900 € für die Skizze, 4.900 € für den förmlichen Antrag, jeweils netto,
+          zusammen 7.800 €. Die zweite Stufe fällt nur an, wenn der Projektträger nach positiver Skizze zum Antrag auffordert; dann ist
+          sie verbindlich. Einreichen und unterschreiben tut Ihr Betrieb. Details unter <a href="#antrag">Antragsbegleitung</a>.</p></details>
         <details><summary>Woher kommen die Informationen?</summary><p>Ausschließlich aus den Originalquellen der Fördergeber: Richtlinien,
           Aufrufe, Verkündungsblätter, Merkblätter. Jedes Programm im Report nennt seine Quelle mit Link. Sekundärquellen wie Blogs oder
           Anbieterseiten verwenden wir nicht.</p></details>
@@ -393,7 +561,8 @@
               <label class="chk"><input type="checkbox" name="vorhaben" value="e-bus"> Elektrobusse beschaffen</label>
               <label class="chk"><input type="checkbox" name="vorhaben" value="ladeinfrastruktur"> Ladeinfrastruktur im Depot oder auf der Strecke</label>
               <label class="chk"><input type="checkbox" name="vorhaben" value="pv"> Photovoltaik und Speicher am Depot</label>
-              <label class="chk"><input type="checkbox" name="vorhaben" value="digitalisierung"> Digitalisierung, IT-Sicherheit</label>
+              <label class="chk"><input type="checkbox" name="vorhaben" value="digitalisierung"> Digitalisierung (Disposition, Telematik, Software)</label>
+              <label class="chk"><input type="checkbox" name="vorhaben" value="it-sicherheit"> IT-Sicherheit (Schutz, Backups, Schulung)</label>
             </fieldset>
             <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
             <label class="chk"><input type="checkbox" name="consent" id="consent" required>
@@ -433,6 +602,53 @@
     <p><a href="#datenschutz">Zur Datenschutzerklärung</a> · <a href="#top">Zurück zur Startseite</a></p>
   </article>
 
+  <article class="legal" id="bedingungen">
+    <h2>Bedingungen der Antragsbegleitung</h2>
+    <p><small>Stand: 24. September 2026 · HLS (Handel, Leasing, Services) Deutschland GmbH, Büro: Bergstr. 18 a, 84405 Dorfen</small></p>
+    <p><strong>1. Gegenstand</strong><br>Gegenstand ist die Vorbereitung von Unterlagen für Förderanträge (Projektskizze, förmlicher
+    Antrag und zugehörige Anlagen) für den Betrieb des Auftraggebers. Geschuldet ist die sorgfältige Erbringung dieser Tätigkeit, nicht
+    ein bestimmter wirtschaftlicher Erfolg. Umfang, Programm und Festpreis werden im Auftrag schriftlich festgehalten.</p>
+    <p><strong>2. Keine Rechts- und Steuerberatung</strong><br>Die Leistung ist wirtschaftlich-technische Unterstützung. Eine
+    Rechtsdienstleistung im Sinne des RDG und eine Hilfeleistung in Steuersachen im Sinne des StBerG sind nicht Gegenstand des Auftrags.
+    Rechtliche und steuerliche Fragen klärt der Auftraggeber mit seinem Anwalt oder Steuerberater.</p>
+    <p><strong>3. Einreichung durch den Auftraggeber</strong><br>Skizze und Antrag werden im Namen des Auftraggebers und mit seiner
+    Unterschrift eingereicht. Der Auftraggeber prüft die Unterlagen vor der Einreichung auf Richtigkeit und Vollständigkeit und gibt sie
+    frei. Eine Vertretung gegenüber Behörden und Projektträgern wird nicht übernommen.</p>
+    <p><strong>4. Mitwirkung und Datenfrist</strong><br>Der Auftraggeber stellt die benötigten Angaben und Unterlagen vollständig,
+    richtig und rechtzeitig bereit, insbesondere Flotten- und Umlaufdaten, Depot- und Netzanschlussdaten, Angebote und
+    Unternehmenskennzahlen. Im Auftrag wird eine Datenfrist vereinbart. Gehen Unterlagen später ein oder sind sie unvollständig, besteht
+    kein Anspruch auf Fertigstellung bis zum Fristende des Förderaufrufs; die vereinbarte Vergütung bleibt geschuldet.</p>
+    <p><strong>5. Vergütung und Zahlung</strong><br>Es gilt der im Auftrag vereinbarte Festpreis zuzüglich Umsatzsteuer. Eine
+    Erfolgsbeteiligung oder ein Anteil am Zuschuss wird nicht vereinbart. Stufe 1 (Skizze) ist zur Hälfte bei Beauftragung und zur Hälfte
+    bei Übergabe der freigabefähigen Unterlagen fällig. Stufe 2 (förmlicher Antrag) entsteht nur, wenn der Projektträger zur
+    Antragstellung auffordert; mit der Aufforderung wird sie verbindlicher Teil des Auftrags und ist bei Übergabe der Unterlagen fällig.
+    Für die bayerische Fahrzeugförderung wird der Festpreis je Antrag unabhängig von der Stückzahl vereinbart; Auszahlungsantrag und
+    Verwendungsnachweis werden gesondert vergütet. Bei Infrastrukturvorhaben wird der Festpreis nach dem Vorgespräch anhand des
+    festgelegten Umfangs vereinbart; Leistungen der Fachplanung sind nicht Gegenstand des Auftrags. Zahlungsziel 14 Tage ohne Abzug. Zusätzliche Anforderungen des
+    Fördergebers, die über den vereinbarten Umfang hinausgehen, werden nach vorheriger Abstimmung gesondert vergütet.</p>
+    <p><strong>6. Kein Erfolgsversprechen</strong><br>Die Förderverfahren sind wettbewerblich und liegen im Ermessen des Fördergebers.
+    Eine Zusage über Bewilligung, Förderhöhe oder Platzierung in einem Auswahlverfahren wird nicht gegeben und kann nicht gegeben werden.
+    Maßgeblich sind allein die Bedingungen des jeweiligen Fördergebers in ihrer geltenden Fassung.</p>
+    <p><strong>7. Haftung</strong><br>Die Haftung für Vorsatz und grobe Fahrlässigkeit sowie für Schäden aus der Verletzung des Lebens,
+    des Körpers oder der Gesundheit ist unbeschränkt. Bei einfacher Fahrlässigkeit wird nur für die Verletzung wesentlicher
+    Vertragspflichten gehaftet, und zwar begrenzt auf den vertragstypischen, vorhersehbaren Schaden. Die Haftung für entgangene
+    Fördermittel setzt voraus, dass der Schaden auf einer Pflichtverletzung beruht und nicht auf Ermessensentscheidungen des
+    Fördergebers, auf verspäteter oder unrichtiger Mitwirkung oder auf einer Änderung der Programmbedingungen.</p>
+    <p><strong>8. Annahme von Aufträgen</strong><br>Je Förderaufruf wird nur eine begrenzte Zahl von Mandaten angenommen. Ein Auftrag
+    kommt erst mit schriftlicher Bestätigung zustande. Gleichzeitige Mandate mehrerer Betriebe im selben Auswahlverfahren werden vor
+    Annahme offengelegt.</p>
+    <p><strong>9. Vertraulichkeit und Datenschutz</strong><br>Betriebsdaten werden vertraulich behandelt und ausschließlich für den
+    Auftrag verwendet. Die Verarbeitung ist in der <a href="#datenschutz">Datenschutzerklärung</a>, Abschnitt 7, beschrieben. Werden
+    Fachleute hinzugezogen, geschieht dies nur nach vorheriger Information des Auftraggebers und auf Grundlage einer Vereinbarung zur
+    Auftragsverarbeitung.</p>
+    <p><strong>10. Laufzeit und Beendigung</strong><br>Der Auftrag endet mit Übergabe der vereinbarten Unterlagen. Beide Seiten können
+    aus wichtigem Grund kündigen. Bei Kündigung durch den Auftraggeber wird die bis dahin erbrachte Leistung anteilig vergütet.</p>
+    <p><strong>11. Schlussbestimmungen</strong><br>Es gilt deutsches Recht. Ist der Auftraggeber Kaufmann, juristische Person des
+    öffentlichen Rechts oder öffentlich-rechtliches Sondervermögen, ist Gerichtsstand der Sitz der HLS Deutschland GmbH. Änderungen und
+    Ergänzungen des Auftrags bedürfen der Textform.</p>
+    <p><a href="#antrag">Zurück zur Antragsbegleitung</a> · <a href="#top">Zurück zur Startseite</a></p>
+  </article>
+
   <article class="legal" id="datenschutz">
     <h2>Datenschutzerklärung</h2>
     <p><small>Stand: September 2026 · gemäß Art. 13 DSGVO und § 25 TDDDG</small></p>
@@ -469,14 +685,19 @@
     <p><strong>6. Kontaktaufnahme per E-Mail oder Telefon</strong><br>Wenn Sie uns kontaktieren, verarbeiten wir die mitgeteilten Daten ausschließlich zur Bearbeitung Ihrer
     Anfrage, Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Anfrage) oder lit. f DSGVO (berechtigtes Interesse an Kommunikation). Die Daten werden gelöscht, sobald sie für
     die Bearbeitung nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
-    <p><strong>7. Weitergabe an Dritte</strong><br>Eine Übermittlung Ihrer Daten an Dritte erfolgt nur an die genannten Auftragsverarbeiter (Netlify für das Hosting der
+    <p><strong>7. Antragsbegleitung</strong><br>Wenn Sie uns mit der Antragsbegleitung beauftragen, verarbeiten wir die dafür nötigen
+    Betriebsdaten (Fahrzeug- und Umlaufdaten, Depot- und Netzanschlussdaten, Angebote, Unternehmenskennzahlen) zur Erstellung von
+    Projektskizze und Antrag. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung). Die Unterlagen werden über einen
+    persönlichen Upload-Link entgegengenommen und in der Datenbank in Frankfurt am Main gespeichert. Aufbewahrung für die Dauer der
+    Zweckbindung der Förderung und der gesetzlichen Aufbewahrungsfristen.</p>
+    <p><strong>8. Weitergabe an Dritte</strong><br>Eine Übermittlung Ihrer Daten an Dritte erfolgt nur an die genannten Auftragsverarbeiter (Netlify für das Hosting der
     Website, Supabase für die Datenbank, Brevo für den E-Mail-Versand) im Rahmen der technischen Bereitstellung und auf Grundlage von Auftragsverarbeitungsverträgen,
     oder wenn eine gesetzliche Verpflichtung besteht. Ihre Daten werden nicht verkauft, nicht vermietet und nicht für Werbung Dritter genutzt.</p>
-    <p><strong>8. Ihre Rechte</strong><br>Ihnen stehen nach der DSGVO zu: Auskunft (Art. 15), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung
+    <p><strong>9. Ihre Rechte</strong><br>Ihnen stehen nach der DSGVO zu: Auskunft (Art. 15), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung
     (Art. 18), Datenübertragbarkeit (Art. 20), Widerspruch (Art. 21) sowie Widerruf einer erteilten Einwilligung mit Wirkung für die Zukunft (Art. 7 Abs. 3). Sie haben
     außerdem das Recht auf Beschwerde bei einer Datenschutzaufsichtsbehörde (Art. 77 DSGVO). Zuständige Aufsichtsbehörde: Sächsische Datenschutz- und
     Transparenzbeauftragte, Dresden (Sitz der Gesellschaft: Leipzig, Sachsen).</p>
-    <p><strong>9. Änderungen dieser Erklärung</strong><br>Diese Datenschutzerklärung wird angepasst, sobald sich der Funktionsumfang der Website oder des Reports ändert.
+    <p><strong>10. Änderungen dieser Erklärung</strong><br>Diese Datenschutzerklärung wird angepasst, sobald sich der Funktionsumfang der Website oder des Reports ändert.
     Es gilt jeweils die zum Zeitpunkt Ihres Besuchs veröffentlichte Fassung.</p>
     <p><a href="#impressum">Zum Impressum</a> · <a href="#top">Zurück zur Startseite</a></p>
   </article>
@@ -487,7 +708,7 @@
   <div class="wrap">
     <div class="cols">
       <span><strong>Fördersignal Bus</strong> · Thema Bus der Reportreihe Fördersignal · Ein Produkt der HLS (Handel, Leasing, Services) Deutschland GmbH · Büro: Bergstr. 18 a, 84405 Dorfen</span>
-      <span><a href="#impressum">Impressum</a> · <a href="#datenschutz">Datenschutz</a> · <a href="mailto:report@foerdersignal.de">Kontakt</a></span>
+      <span><a href="#impressum">Impressum</a> · <a href="#datenschutz">Datenschutz</a> · <a href="#bedingungen">Bedingungen</a> · <a href="mailto:report@foerdersignal.de">Kontakt</a></span>
     </div>
   </div>
 </footer>
