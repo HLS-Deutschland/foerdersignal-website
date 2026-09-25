@@ -167,6 +167,25 @@
   .legal:target{display:block}
   .legal h2{font-size:22px}
   .entwurf{color:#a33;font-weight:700}
+
+  /* Fristenband — genau ein Mal auf der Seite, direkt unter dem Kopf. Datum steht statisch im Text,
+     die Restlaufzeit und das Jahr fuellt das Skript am Ende der Datei (rollt nach dem Stichtag aufs Folgejahr). */
+  .frist{background:#FFEDC9;border-top:1px solid var(--amber);border-bottom:1px solid var(--amber);padding:34px 0}
+  .frist-grid{display:grid;grid-template-columns:200px 1fr;gap:32px;align-items:start}
+  @media(max-width:760px){.frist-grid{grid-template-columns:1fr;gap:20px}}
+  .frist-kachel{background:var(--ink);color:var(--paper);border-radius:6px;padding:18px 16px;text-align:center}
+  .frist-tag{font-family:var(--font-display);font-size:34px;line-height:1;color:var(--amber);letter-spacing:-.02em}
+  .frist-jahr{font-family:var(--font-display);font-size:15px;letter-spacing:.14em;color:rgba(246,239,217,.7);margin-top:6px}
+  .frist-rest{margin-top:12px;padding-top:12px;border-top:1px solid rgba(246,239,217,.2);font-size:14px;color:var(--paper)}
+  .frist h2{font-size:clamp(22px,2.8vw,30px);margin-bottom:10px;color:var(--ink)}
+  .frist p{color:var(--ink-soft);font-size:15.5px;max-width:64ch}
+  .frist p+p{margin-top:10px}
+  .frist .eyebrow{color:var(--amber-dim)}
+  .frist-betraege{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0;padding:0;list-style:none}
+  .frist-betraege li{background:var(--white);border:1px solid var(--line);border-radius:3px;padding:6px 10px;font-size:14px;font-family:var(--font-display)}
+  .frist-angebot{margin-top:16px;padding:14px 16px;background:var(--white);border:1px solid var(--line);border-left:3px solid var(--petrol);border-radius:4px}
+  .frist .actions{margin-top:18px}
+  .btn-line{border-color:rgba(20,24,28,.35);color:var(--ink)}.btn-line:hover{border-color:var(--ink)}
 </style>
 </head>
 <body>
@@ -203,12 +222,43 @@
       </div>
       <div class="board" aria-label="Kennzahlen des Dienstes">
         <div class="board-row"><span class="board-k">Beobachtete Quellen</span><span class="board-v">12 <span class="amber">Bund · Bayern · EU</span></span></div>
-        <div class="board-row"><span class="board-k">Programme in der Datenbank</span><span class="board-v">53</span></div>
+        <div class="board-row"><span class="board-k">Programme in der Datenbank</span><span class="board-v">54</span></div>
         <div class="board-row"><span class="board-k">Prüftakt</span><span class="board-v">wöchentlich, <span class="amber">kurze Fenster täglich</span></span></div>
         <div class="board-row"><span class="board-k">Je Ausgabe</span><span class="board-v">3–5 Programme, je 5 Zeilen</span></div>
         <div class="board-row"><span class="board-k">Fristen-Alarm</span><span class="board-v">nächste 90 Tage</span></div>
         <div class="board-row"><span class="board-k">Basisreport</span><span class="board-v"><span class="amber">kostenlos</span></span></div>
         <div class="board-foot">Stand September 2026. Server in Frankfurt am Main.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="frist" id="frist" aria-labelledby="frist-h">
+    <div class="wrap frist-grid">
+      <div class="frist-kachel">
+        <div class="frist-tag">01.12.</div>
+        <div class="frist-jahr js-frist-jahr">2026</div>
+        <div class="frist-rest js-frist-rest" aria-live="polite">Stichtag einmal im Jahr</div>
+      </div>
+      <div>
+        <div class="eyebrow">Aktuell · Bayern · Klimabusse</div>
+        <h2 id="frist-h">Stichtag <span class="js-frist-datum">1. Dezember 2026</span>: bayerische Busförderung</h2>
+        <p>Das Programm sieht für Linienbusse im allgemeinen Nahverkehr Festbeträge je Fahrzeug vor, für emissionsfreie Antriebe
+        in dieser Höhe (Eckpunkte Klimabusse, Stand 19.07.2024):</p>
+        <ul class="frist-betraege">
+          <li>Kleinbus 30.000 €</li><li>Midibus 50.000 €</li><li>Standardbus 75.000 €</li>
+          <li>13 m 80.000 €</li><li>15 m 85.000 €</li><li>Gelenkbus 105.000 €</li>
+          <li>Niederflur + 10.000 €</li>
+        </ul>
+        <p>Der Antrag ist laut Programm bis zum 1. Dezember des Vorjahres bei der zuständigen Bezirksregierung vorgesehen. Was jetzt
+        eingeht, betrifft die Beschaffung <span class="js-frist-beschaffung">2027</span>. Der Termin kommt einmal im Jahr; Dieselbusse
+        sieht das Programm seit 2025 nicht mehr vor.</p>
+        <div class="frist-angebot"><b>Unser Angebot dazu:</b> Wir bereiten den Antrag vor, Sie reichen ein und unterschreiben.
+        <b>1.500 € netto je Antrag, unabhängig von der Stückzahl.</b> Auszahlungsantrag und Verwendungsnachweis nach der Beschaffung
+        zusätzlich 500 € netto. Festpreis, keine Erfolgsbeteiligung. Je Förderaufruf nehmen wir nur eine begrenzte Zahl von Mandaten an.</div>
+        <div class="actions">
+          <a class="btn btn-petrol" href="mailto:report@foerdersignal.de?subject=Klimabus-Antrag%20zum%201.%20Dezember%20%E2%80%93%20Vorgespr%C3%A4ch">Vorgespräch anfragen</a>
+          <a class="btn btn-line" href="#antrag">Was dazugehört</a>
+        </div>
       </div>
     </div>
   </section>
@@ -323,7 +373,7 @@
       <div class="stufen" style="margin-top:14px">
         <div class="stufe"><span class="tag">Fahrzeuge</span><h3>Klimabus-Festbetrag</h3>
           <div class="preis">1.500 €<small>netto, je Antrag, unabhängig von der Stückzahl</small></div>
-          <p>Antrag auf die bayerischen Festbeträge je emissionsfreiem Linienbus bei der Bezirksregierung, Stichtag 1. Dezember.
+          <p>Antrag auf die bayerischen Festbeträge je emissionsfreiem Linienbus bei der Bezirksregierung, Stichtag 1. Dezember &#8211; nächster Termin <span class="js-frist-datum">1. Dezember 2026</span>.
           Fahrzeugbestandsdatenblatt, Formulare, Nachweise, Fristüberwachung.</p>
           <ul>
             <li>Berechnung der Festbeträge je Buskategorie</li>
@@ -748,6 +798,26 @@
         }).catch(function () { msg.className = "msg err"; msg.textContent = "Verbindung fehlgeschlagen. Bitte später erneut versuchen."; })
         .finally(function () { btn.disabled = false; });
     });
+  })();
+
+  // Fristenband: Restlaufzeit bis zum 1. Dezember. Nach dem Stichtag rollt das Band von allein auf den
+  // naechsten 1. Dezember weiter, damit auf der Seite nie ein abgelaufenes Datum steht.
+  (function () {
+    var MONATE = ["Januar","Februar","M\u00e4rz","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"];
+    var heute = new Date(); heute.setHours(0, 0, 0, 0);
+    var ziel = new Date(heute.getFullYear(), 11, 1);
+    if (ziel < heute) { ziel = new Date(heute.getFullYear() + 1, 11, 1); }
+    var tage = Math.round((ziel - heute) / 86400000);
+    var rest = tage === 0 ? "heute" : (tage === 1 ? "morgen" : "in " + tage + " Tagen");
+    var datum = ziel.getDate() + ". " + MONATE[ziel.getMonth()] + " " + ziel.getFullYear();
+    function setze(klasse, text) {
+      var liste = document.querySelectorAll("." + klasse);
+      for (var i = 0; i < liste.length; i++) { liste[i].textContent = text; }
+    }
+    setze("js-frist-jahr", String(ziel.getFullYear()));
+    setze("js-frist-datum", datum);
+    setze("js-frist-beschaffung", String(ziel.getFullYear() + 1));
+    setze("js-frist-rest", rest);
   })();
 </script>
 </body>
