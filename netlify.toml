@@ -27,3 +27,13 @@
   to = "https://foerdersignal.de/:splat"
   status = 301
   force = true
+
+# WO-FÖS-BUS-03 (F-7): Links aus der Bestätigungsmail. Rewrite (200) behält ?token=… bei.
+[[redirects]]
+  from = "/bestaetigen"
+  to = "/bestaetigen.html"
+  status = 200
+[[redirects]]
+  from = "/abmelden"
+  to = "/abmelden.html"
+  status = 200
