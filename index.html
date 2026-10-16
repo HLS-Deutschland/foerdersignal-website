@@ -560,7 +560,7 @@
         <details><summary>Woher kommen die Informationen?</summary><p>Ausschließlich aus den Originalquellen der Fördergeber: Richtlinien,
           Aufrufe, Verkündungsblätter, Merkblätter. Jedes Programm im Report nennt seine Quelle mit Link. Sekundärquellen wie Blogs oder
           Anbieterseiten verwenden wir nicht.</p></details>
-        <details><summary>Was passiert mit meinen Angaben?</summary><p>Flotte, Verkehrsart, Betriebssitz und Vorhaben dienen nur der Auswahl der
+        <details><summary>Was passiert mit meinen Angaben?</summary><p>Flotte, Verkehrsart, Betriebssitz, Betriebshof und Vorhaben dienen nur der Auswahl der
           Programme. Sie liegen in einer Datenbank in Frankfurt am Main und werden nicht weitergegeben. Abmelden geht mit einem Klick.</p></details>
         <details><summary>Ich bin nicht in Bayern. Lohnt sich das?</summary><p>Die Bundesprogramme, etwa für Elektrobusse und Ladeinfrastruktur, gelten
           bundesweit und stehen in jedem Report. Landesprogramme decken wir zunächst nur für Bayern ab. Weitere Länder folgen.</p></details>
@@ -614,6 +614,13 @@
                 </select></div>
               <div><label for="sitz">Betriebssitz in Bayern</label>
                 <select id="sitz" name="sitz_bayern"><option value="ja">ja</option><option value="nein">nein</option></select></div>
+              <div><label for="betriebshof">Eigener oder dauerhaft genutzter Betriebshof</label>
+                <select id="betriebshof" name="betriebshof">
+                  <option value="">Bitte wählen</option>
+                  <option value="ja">ja</option>
+                  <option value="nein">nein</option>
+                  <option value="unbekannt">weiß nicht</option>
+                </select></div>
             </div>
             <fieldset><legend>Vorhaben (Mehrfachauswahl)</legend>
               <label class="chk"><input type="checkbox" name="vorhaben" value="e-bus"> Elektrobusse beschaffen</label>
@@ -726,7 +733,7 @@
     die Daten an Dritte übertragen. Ein Cookie-Banner ist deshalb nach § 25 TDDDG nicht erforderlich. Sollten künftig Analyse- oder Einbettungsdienste ergänzt werden,
     wird vor deren Laden eine Einwilligung eingeholt.</p>
     <p><strong>4. Anmeldung zum Fachreport (Double-Opt-in)</strong><br>Wenn Sie den Fachreport Fördersignal Bus anfordern, verarbeiten wir die Angaben aus dem Formular:
-    Name des Betriebs, Ansprechperson (freiwillig), E-Mail-Adresse sowie die Betriebsangaben Flottengröße, Verkehrsart, Betriebssitz und Vorhaben. Zweck ist die
+    Name des Betriebs, Ansprechperson (freiwillig), E-Mail-Adresse sowie die Betriebsangaben Flottengröße, Verkehrsart, Betriebssitz, Betriebshof und Vorhaben. Zweck ist die
     Zusammenstellung der für Ihren Betrieb passenden Förderprogramme und der Versand des Reports und der Fristenübersicht per E-Mail. Rechtsgrundlage ist Ihre Einwilligung,
     Art. 6 Abs. 1 lit. a DSGVO. Die Anmeldung wird erst wirksam, wenn Sie sie über den Link in unserer Bestätigungs-E-Mail bestätigen (Double-Opt-in); ohne Bestätigung
     wird nichts versendet und die Anmeldung nach 14 Tagen gelöscht.<br>
@@ -803,7 +810,7 @@
       var payload = {
         company_name: form.company_name.value.trim(), contact_name: form.contact_name.value.trim(), email: form.email.value.trim(),
         fleet_total: parseInt(form.fleet_total.value || "0", 10), verkehrsart: form.verkehrsart.value, sitz_bayern: form.sitz_bayern.value === "ja",
-        vorhaben: vorhaben, consent: true, website: form.website.value
+        betriebshof: form.betriebshof.value, vorhaben: vorhaben, consent: true, website: form.website.value
       };
       btn.disabled = true;
       fetch(SUPABASE_URL + "/functions/v1/subscribe", {
